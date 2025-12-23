@@ -1,27 +1,121 @@
-# SmartAppointmentScheduler
+🏥 Smart Appointment Scheduler – Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+A modern and responsive Angular application designed to manage clinic appointments efficiently.
+This frontend enables patients, doctors, and administrators to interact with the appointment scheduling system smoothly.
 
-## Development server
+🚀 Features
+👤 Patient Module
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Book appointments online
 
-## Code scaffolding
+View appointment status
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Receive email notifications
 
-## Build
+🩺 Doctor Module
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+View assigned appointments
 
-## Running unit tests
+Update appointment status (Accepted / Completed)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+🛠 Admin Module
 
-## Running end-to-end tests
+Manage doctors, patients, and treatments
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Approve or reject appointments
 
-## Further help
+View appointment dashboard
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🧰 Tech Stack
+
+Angular
+
+TypeScript
+
+Angular Material
+
+HTML5
+
+SCSS
+
+REST API Integration
+
+📁 Project Structure
+src/
+ ├── app/
+ │   ├── admin/
+ │   ├── doctor/
+ │   ├── patient/
+ │   ├── auth/
+ │   ├── services/
+ │   └── shared/
+ ├── assets/
+ └── environments/
+
+🔗 Backend Repository
+
+This project works with a dedicated backend built using Node.js, Express, and MongoDB.
+
+👉 Backend GitHub Repository:
+https://github.com/rohinigaikwad7057/smart-appointment-scheduler-backend
+
+🔧 Environment Configuration
+
+Update the API base URL in your Angular environment file:
+
+src/environments/environment.ts
+
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:5000/api'
+};
+
+🧪 Sample Test Credentials (Local)
+Role	Email	Password
+admin2@gmail.com
+Admin456
+Doctor Crentials
+pragati
+pragati
+User Credential
+rani123
+rani123
+
+⚠️ These are sample credentials for local testing only.
+
+🚀 Deployment
+
+Frontend can be deployed using:
+
+Netlify
+
+Vercel
+
+Firebase Hosting
+
+Build Command
+ng build --configuration production
+
+📸 Screenshots (Optional)
+
+Add screenshots in a folder:
+
+/screenshots
+  ├── login.png
+  ├── dashboard.png
+  └── appointment-list.png
+
+
+Display in README like this:
+
+![Dashboard](screenshots/dashboard.png)
+
+👩‍💻 Author
+
+Rohini Gaikwad
+Frontend Developer (Angular) – UAE
+🔗 GitHub: https://github.com/rohinigaikwad7057
+
+⭐ Show Your Support
+
+If you like this project, please ⭐ star the repository — it really motivates me!
