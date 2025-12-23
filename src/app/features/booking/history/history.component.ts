@@ -27,7 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule
-    ,MatSnackBarModule,
+    , MatSnackBarModule,
     MatPaginator,
     MatTableModule,
     MatButtonToggleModule,
@@ -52,7 +52,7 @@ export class HistoryComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private snack: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadAppointments();

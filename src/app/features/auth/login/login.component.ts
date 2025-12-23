@@ -21,7 +21,7 @@ export class LoginComponent {
   returnUrl: string = '/';
   userType: string = 'patient';
 
- setUserType(type: 'patient' | 'doctor' | 'admin') {
+  setUserType(type: 'patient' | 'doctor' | 'admin') {
     this.userType = type;
   }
 
@@ -31,14 +31,14 @@ export class LoginComponent {
     private router: Router,
     private route: ActivatedRoute,
     private snack: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
   }
 
-  
- login() {
+
+  login() {
     if (!this.email || !this.password) {
       this.snack.open('Enter credentials', 'OK', { duration: 3000 });
       return;
@@ -65,7 +65,7 @@ export class LoginComponent {
         next: (res: any) => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('role', 'admin');
-           this.router.navigate(['/admin/dashboard']);
+          this.router.navigate(['/admin/dashboard']);
         },
         error: () => this.snack.open('Invalid admin credentials', 'OK', { duration: 3000 })
       });

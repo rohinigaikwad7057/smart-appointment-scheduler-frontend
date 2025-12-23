@@ -1,12 +1,8 @@
-  <div class="page-header">
+<div class="page-header">
   <h1 style="margin-bottom: 30px;margin-top: 30px;">Manage Treatments</h1>
 
   <!-- Show Add Doctor button only when form is hidden -->
-  <button class="pre-btn"
-    mat-raised-button
-    color="primary"
-    *ngIf="!showAddForm"
-    (click)="showAddForm = true">
+  <button class="pre-btn" mat-raised-button color="primary" *ngIf="!showAddForm" (click)="showAddForm = true">
     <mat-icon>add</mat-icon>
     Add Treatment
   </button>
@@ -26,29 +22,29 @@
     </button>
   </div>
 
- <form [formGroup]="form">
+  <form [formGroup]="form">
 
-      <mat-form-field appearance="outline">
-        <mat-label>Treatment Name</mat-label>
-        <input matInput formControlName="name">
-      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Treatment Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Duration (minutes)</mat-label>
-        <input matInput type="number" formControlName="duration">
-      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Duration (minutes)</mat-label>
+      <input matInput type="number" formControlName="duration">
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Price</mat-label>
-        <input matInput type="number" formControlName="price">
-      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price">
+    </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Description</mat-label>
-        <textarea matInput rows="2" formControlName="description"></textarea>
-      </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput rows="2" formControlName="description"></textarea>
+    </mat-form-field>
 
-    </form>
+  </form>
 </mat-card>
 
 <!-- DOCTORS TABLE (Always visible) -->
@@ -86,9 +82,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<mat-paginator
-  [pageSize]="pageSize"
-  [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons>
+<mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
 </mat-paginator>
-

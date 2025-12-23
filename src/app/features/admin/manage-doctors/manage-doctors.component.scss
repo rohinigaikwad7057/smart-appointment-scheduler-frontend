@@ -7,13 +7,15 @@
 .doctor-form {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px; /* spacing between all fields */
+  gap: 20px;
+  /* spacing between all fields */
 }
 
 /* Full width fields */
 .doctor-form mat-form-field {
   width: 100%;
 }
+
 /* Experience + button row */
 .experience-row {
   grid-column: span 4;
@@ -24,7 +26,8 @@
 
 /* Limit experience width */
 .experience-field {
-  max-width: 320px;   /* controls length */
+  max-width: 320px;
+  /* controls length */
   width: 100%;
 }
 
@@ -36,6 +39,7 @@
   margin-bottom: 20px;
 
 }
+
 pre-btn {
   margin-bottom: 20px;
   margin-top: 20px;

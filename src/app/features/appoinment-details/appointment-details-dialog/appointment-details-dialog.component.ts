@@ -19,7 +19,7 @@ import { AuthService } from '../../../services/auth.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
-    ,MatSnackBarModule
+    , MatSnackBarModule
   ],
   templateUrl: './appointment-details-dialog.component.html',
 })
@@ -32,30 +32,30 @@ export class AppointmentDetailsDialogComponent {
     private http: HttpClient,
     private auth: AuthService,
     private snack: MatSnackBar
-  ) {}
+  ) { }
 
   close() {
     this.dialogRef.close();
   }
 
   saveNotes() {
-  if (!this.data || !this.data._id) return;
+    if (!this.data || !this.data._id) return;
 
-  this.savingNotes = true;
+    this.savingNotes = true;
 
-  this.auth.saveAppointmentNotes(this.data._id, this.data.notes)
-    .subscribe({
-      next: () => {
-        this.savingNotes = false;
-        this.snack.open('Notes saved successfully', 'OK', { duration: 3000 });
-        this.dialogRef.close(true);
-      },
-      error: () => {
-        this.savingNotes = false;
-        this.snack.open('Failed to save notes', 'OK', { duration: 3000 });
-      }
-    });
-}
+    this.auth.saveAppointmentNotes(this.data._id, this.data.notes)
+      .subscribe({
+        next: () => {
+          this.savingNotes = false;
+          this.snack.open('Notes saved successfully', 'OK', { duration: 3000 });
+          this.dialogRef.close(true);
+        },
+        error: () => {
+          this.savingNotes = false;
+          this.snack.open('Failed to save notes', 'OK', { duration: 3000 });
+        }
+      });
+  }
 
 
 }

@@ -23,8 +23,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatListModule,
     MatIconModule,
-    ReactiveFormsModule,CommonModule,
-    MatTableModule,MatPaginatorModule
+    ReactiveFormsModule, CommonModule,
+    MatTableModule, MatPaginatorModule
   ],
   templateUrl: './manage-treatments.component.html',
   styleUrl: './manage-treatments.component.scss'
@@ -32,12 +32,12 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 export class ManageTreatmentsComponent implements OnInit {
 
   treatments: any[] = [];
-    pageSize = 5;
+  pageSize = 5;
   displayedColumns = ['name', 'duration', 'price', 'actions'];
-  dataSource = new MatTableDataSource<any>([]); 
+  dataSource = new MatTableDataSource<any>([]);
   form: FormGroup;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
- showAddForm = false;
+  showAddForm = false;
   constructor(private adminService: AdminService, private fb: FormBuilder) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -64,8 +64,8 @@ export class ManageTreatmentsComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.adminService.addTreatment(this.form.value).subscribe(() => {
-       this.form.reset();
-      this.showAddForm = false; 
+      this.form.reset();
+      this.showAddForm = false;
       this.loadTreatments();
     });
   }

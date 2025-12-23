@@ -18,7 +18,7 @@ import { PricingComponent } from '../pricing/pricing.component';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule,
-      MatCardModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -28,8 +28,8 @@ import { PricingComponent } from '../pricing/pricing.component';
     BlogsComponent,
     BookComponent,
     ContactsComponent,
-   PricingComponent
-    
+    PricingComponent
+
 
   ],
   templateUrl: './home.component.html',
@@ -39,17 +39,17 @@ export class HomeComponent {
   role: string | null = null;
   mobileNavOpen = false;
 
-constructor(private router: Router, public authService: AuthService, private route: ActivatedRoute) {
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
-  this.role = user.role || null;
-}
-activeSection = 'home';
+  constructor(private router: Router, public authService: AuthService, private route: ActivatedRoute) {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.role = user.role || null;
+  }
+  activeSection = 'home';
 
   toggleMobileNav() { this.mobileNavOpen = !this.mobileNavOpen; }
   closeMobileNav() { this.mobileNavOpen = false; }
 
   @HostListener('window:scroll', [])
-  
+
   onScroll(): void {
     const sections = ['home', 'about', 'services', 'pricing', 'blog'];
 
@@ -66,7 +66,7 @@ activeSection = 'home';
       }
     }
   }
-  
+
   goToBook() {
     this.router.navigate(['/patient/book']);
   }
@@ -86,13 +86,13 @@ activeSection = 'home';
   goToManageDoctors() {
     this.router.navigate(['/admin/doctors']);
   }
- goToPatients() {
-  alert("Patients module not created yet");
-}
+  goToPatients() {
+    alert("Patients module not created yet");
+  }
 
-goToProfile() {
-  alert("Profile page coming soon!");
-}
+  goToProfile() {
+    alert("Profile page coming soon!");
+  }
 
 }
 

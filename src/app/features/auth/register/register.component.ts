@@ -12,13 +12,13 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule,  MatCardModule,
+  imports: [CommonModule, MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     FormsModule,
     MatSnackBarModule,
-    RouterModule   
+    RouterModule
 
   ],
   templateUrl: './register.component.html',
@@ -30,13 +30,13 @@ export class RegisterComponent {
   password = '';
   userType = ''; // patient or doctor
 
-  constructor(private auth: AuthService, private router: Router, private snack: MatSnackBar) {}
+  constructor(private auth: AuthService, private router: Router, private snack: MatSnackBar) { }
 
-register() {
-  if (!this.name || !this.email || !this.password) { this.snack.open('All fields required', 'OK', { duration: 3000 }); return; }
+  register() {
+    if (!this.name || !this.email || !this.password) { this.snack.open('All fields required', 'OK', { duration: 3000 }); return; }
 
-  this.auth.registerPatient({ name: this.name, email: this.email, password: this.password })
-    .subscribe(() => this.router.navigate(['/login']), 
-               () => this.snack.open('Registration failed', 'OK', { duration: 3000 }));
-}
+    this.auth.registerPatient({ name: this.name, email: this.email, password: this.password })
+      .subscribe(() => this.router.navigate(['/login']),
+        () => this.snack.open('Registration failed', 'OK', { duration: 3000 }));
+  }
 }

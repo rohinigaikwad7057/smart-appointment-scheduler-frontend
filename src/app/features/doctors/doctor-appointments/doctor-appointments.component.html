@@ -3,9 +3,7 @@
     <h2>All Appointments</h2>
 
     <!-- Tabs -->
-    <mat-tab-group
-      (selectedTabChange)="filterTab($event)"
-      class="tabs">
+    <mat-tab-group (selectedTabChange)="filterTab($event)" class="tabs">
       <mat-tab label="All"></mat-tab>
       <mat-tab label="Today"></mat-tab>
       <mat-tab label="Upcoming"></mat-tab>
@@ -16,10 +14,7 @@
     <div class="search-container">
       <mat-form-field appearance="outline" class="search-field">
         <mat-icon matPrefix>search</mat-icon>
-        <input
-          matInput
-          placeholder="Search appointments"
-          (keyup)="applyFilter($event)">
+        <input matInput placeholder="Search appointments" (keyup)="applyFilter($event)">
       </mat-form-field>
     </div>
 
@@ -78,21 +73,16 @@
               <mat-icon>visibility</mat-icon>
             </button>
 
-            <button mat-stroked-button color="primary"
-                    *ngIf="row.status === 'Booked'"
-                    (click)="accept(row._id)">
+            <button mat-stroked-button color="primary" *ngIf="row.status === 'Booked'" (click)="accept(row._id)">
               Accept
             </button>
 
-            <button mat-stroked-button color="warn"
-                    *ngIf="row.status === 'Booked'"
-                    (click)="reject(row._id)">
+            <button mat-stroked-button color="warn" *ngIf="row.status === 'Booked'" (click)="reject(row._id)">
               Reject
             </button>
 
-            <button mat-raised-button color="primary"
-                    *ngIf="row.status === 'Accepted'"
-                    (click)="markCompleted(row._id)">
+            <button mat-raised-button color="primary" *ngIf="row.status === 'Accepted'"
+              (click)="markCompleted(row._id)">
               Complete
             </button>
 
@@ -104,10 +94,7 @@
       </table>
     </div>
 
-    <mat-paginator
-      [pageSize]="10"
-      [pageSizeOptions]="[5,10,20]"
-      showFirstLastButtons>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
     </mat-paginator>
   </div>
 </div>

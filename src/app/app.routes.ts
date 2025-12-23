@@ -27,7 +27,7 @@ import { MyProfileComponent } from './features/booking/my-profile/my-profile.com
 
 
 // ===========================================
-// 🚀 FINAL ROUTING CONFIG
+//  FINAL ROUTING CONFIG
 // ===========================================
 export const routes: Routes = [
 

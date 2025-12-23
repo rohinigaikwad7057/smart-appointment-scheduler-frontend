@@ -10,8 +10,6 @@ import { AuthService } from '../../../services/auth.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
-
-
 @Component({
   selector: 'app-my-profile',
   standalone: true,
@@ -24,7 +22,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatTabsModule,
     MatSelectModule
-    ,MatSnackBarModule
+    , MatSnackBarModule
   ],
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
@@ -39,7 +37,7 @@ export class MyProfileComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private snack: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('user') || '{}');

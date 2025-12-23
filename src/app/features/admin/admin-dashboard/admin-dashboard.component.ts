@@ -15,7 +15,7 @@ import { AdminService } from '../../../services/admin.service';
 export class AdminDashboardComponent implements OnInit {
   stats: any = { doctorsCount: 0, treatmentsCount: 0, appointmentsCount: 0, patientsCount: 0 };
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.adminService.getDashboard().subscribe((res: any) => this.stats = res);

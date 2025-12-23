@@ -28,7 +28,7 @@ export class AppointmentsComponent implements OnInit {
 
   filter: 'all' | 'upcoming' | 'past' = 'all';
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.load();
@@ -56,10 +56,10 @@ export class AppointmentsComponent implements OnInit {
 
     if (view === 'upcoming') {
       this.appointments = this.rows.filter(a => a.date >= today);
-    } 
+    }
     else if (view === 'past') {
       this.appointments = this.rows.filter(a => a.date < today);
-    } 
+    }
     else {
       this.appointments = [...this.rows];
     }

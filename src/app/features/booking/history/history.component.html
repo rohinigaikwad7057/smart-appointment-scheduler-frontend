@@ -5,9 +5,7 @@
     <h2>Appointment History</h2>
 
     <div class="filters">
-      <mat-button-toggle-group
-        [value]="filterType"
-        (change)="filterType = $event.value; applyFilter()">
+      <mat-button-toggle-group [value]="filterType" (change)="filterType = $event.value; applyFilter()">
 
         <mat-button-toggle value="upcoming">
           Upcoming
@@ -29,19 +27,13 @@
   <div class="appointments-grid">
 
     <ng-container *ngIf="pagedAppointments.length; else empty">
-      <mat-card
-        class="appointment-card"
-        *ngFor="let appt of pagedAppointments">
+      <mat-card class="appointment-card" *ngFor="let appt of pagedAppointments">
 
         <!-- HEADER -->
         <div class="card-header">
           <h3>{{ appt.treatmentId?.name }}</h3>
 
-          <button
-            mat-icon-button
-            color="warn"
-            *ngIf="filterType === 'upcoming'"
-            (click)="cancelAppointment(appt._id)">
+          <button mat-icon-button color="warn" *ngIf="filterType === 'upcoming'" (click)="cancelAppointment(appt._id)">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -73,10 +65,7 @@
   </div>
 
   <!-- PAGINATOR -->
-  <mat-paginator
-    [length]="totalAppointments"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[6, 12, 24]"
+  <mat-paginator [length]="totalAppointments" [pageSize]="pageSize" [pageSizeOptions]="[6, 12, 24]"
     (page)="onPageChange($event)">
   </mat-paginator>
 

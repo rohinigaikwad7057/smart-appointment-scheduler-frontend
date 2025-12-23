@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AdminService {
   url = `${environment.apiUrl}`; // Base URL
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Treatments
   addTreatment(payload: any) {
@@ -22,16 +22,16 @@ export class AdminService {
   addDoctor(payload: any) {
     return this.http.post(`${this.url}/doctors/add`, payload);
   }
-  
-getDoctors() {
-  return this.http.get<any[]>(`${this.url}/doctors`);
-}
 
-deleteDoctor(id: string) {
-  return this.http.delete<{ message: string }>(
-    `${this.url}/doctors/${id}`
-  );
-}
+  getDoctors() {
+    return this.http.get<any[]>(`${this.url}/doctors`);
+  }
+
+  deleteDoctor(id: string) {
+    return this.http.delete<{ message: string }>(
+      `${this.url}/doctors/${id}`
+    );
+  }
 
   // Appointments
   getAppointments() {

@@ -6,20 +6,20 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
   @Input() collapsed = false;
- @Input() open = false;   // 👈 receives state from AppComponent
+  @Input() open = false;   // 👈 receives state from AppComponent
   @Input() role: string | null = null;
 
 
   closeSidebar() {
     this.open = false;
   }
-  constructor(public authService: AuthService, public router :Router) {}
+  constructor(public authService: AuthService, public router: Router) { }
 
   toggle() {
     this.collapsed = !this.collapsed;

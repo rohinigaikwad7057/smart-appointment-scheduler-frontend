@@ -35,7 +35,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 export class ManageDoctorsComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'specialization', 'experience', 'action'];
-  dataSource = new MatTableDataSource<any>([]); 
+  dataSource = new MatTableDataSource<any>([]);
 
   pageSize = 5;
   showAddForm = false;
@@ -62,28 +62,28 @@ export class ManageDoctorsComponent implements OnInit {
     this.loadDoctors();
   }
 
-loadDoctors() {
-  this.adminService.getDoctors().subscribe((res: any[]) => {
-    this.dataSource.data = res;
-    this.dataSource.paginator = this.paginator;
-  });
-}
+  loadDoctors() {
+    this.adminService.getDoctors().subscribe((res: any[]) => {
+      this.dataSource.data = res;
+      this.dataSource.paginator = this.paginator;
+    });
+  }
 
 
-addDoctor() {
-  if (this.form.invalid) return;
+  addDoctor() {
+    if (this.form.invalid) return;
 
-  this.adminService.addDoctor(this.form.value).subscribe({
-    next: () => {
-      this.form.reset();
-      this.showAddForm = false; // 👈 close form
-      this.loadDoctors();       // refresh table
-    },
-    error: (err) => {
-      console.error(err);
-    }
-  });
-}
+    this.adminService.addDoctor(this.form.value).subscribe({
+      next: () => {
+        this.form.reset();
+        this.showAddForm = false; // 👈 close form
+        this.loadDoctors();       // refresh table
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 
 
   removeDoctor(id: string) {

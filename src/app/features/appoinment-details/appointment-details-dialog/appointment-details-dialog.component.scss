@@ -6,12 +6,35 @@
   box-sizing: border-box;
 }
 
-.dialog-title { font-size: 20px; font-weight:600; margin-bottom:8px; }
-.dialog-body { font-size: 14px; color:#334; }
-.dialog-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:12px; }
+.dialog-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.dialog-body {
+  font-size: 14px;
+  color: #334;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
 
 @media (max-width: 480px) {
-  .dialog-content { padding: 12px; }
-  .dialog-actions { flex-direction: column-reverse; align-items: stretch; }
-  .dialog-title { font-size: 18px; }
+  .dialog-content {
+    padding: 12px;
+  }
+
+  .dialog-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .dialog-title {
+    font-size: 18px;
+  }
 }

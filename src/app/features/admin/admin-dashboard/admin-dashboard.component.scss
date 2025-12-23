@@ -1,14 +1,52 @@
-.admin-dashboard { padding: 24px; }
-.cards { display:flex; gap:18px; flex-wrap:wrap; }
-.card { background:#fff; border-radius:10px; padding:18px; width:220px; box-shadow:0 6px 18px rgba(16,24,40,0.06); text-align:center }
-.card h3 { font-size:28px; margin:6px 0; }
-.card p { color:#6b7a90; margin-bottom:12px; }
-.card .btn { background:#0a63b7; color:#fff; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-block }
+.admin-dashboard {
+  padding: 24px;
+}
+
+.cards {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  width: 220px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  text-align: center
+}
+
+.card h3 {
+  font-size: 28px;
+  margin: 6px 0;
+}
+
+.card p {
+  color: #6b7a90;
+  margin-bottom: 12px;
+}
+
+.card .btn {
+  background: #0a63b7;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block
+}
 
 @media (max-width: 768px) {
-  .cards { justify-content:center }
-  .card { width:100%; max-width:320px }
+  .cards {
+    justify-content: center
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px
+  }
 }
+
 .admin-dashboard {
   padding: 24px;
   text-align: center;
@@ -69,6 +107,7 @@
 .doctors {
   border: 4px solid #2563eb;
 }
+
 .doctors h3,
 .doctors a {
   color: #2563eb;
@@ -77,6 +116,7 @@
 .treatments {
   border: 4px solid #16a34a;
 }
+
 .treatments h3,
 .treatments a {
   color: #16a34a;
@@ -85,6 +125,7 @@
 .appointments {
   border: 4px solid #d97706;
 }
+
 .appointments h3,
 .appointments a {
   color: #d97706;
@@ -93,6 +134,7 @@
 .patients {
   border: 4px solid #9333ea;
 }
+
 .patients h3 {
   color: #9333ea;
 }

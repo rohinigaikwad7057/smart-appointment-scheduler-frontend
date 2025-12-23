@@ -1,32 +1,31 @@
-
-.footer{
+.footer {
     text-align: center;
 }
 
-.footer .box-container{
+.footer .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 2rem;
 }
 
-.footer .box-container .box h3{
+.footer .box-container .box h3 {
     font-size: 2.2rem;
     padding: 1rem 0;
     color: var(--secondary);
 }
 
-.footer .box-container .box p{
+.footer .box-container .box p {
     font-size: 1.5rem;
     padding: .5rem 0;
     line-height: 2;
     color: var(--light-color);
 }
 
-.footer .box-container .box .share{
+.footer .box-container .box .share {
     margin-top: 1rem;
 }
 
-.footer .box-container .box .share a{
+.footer .box-container .box .share a {
     height: 4.5rem;
     width: 4.5rem;
     background: var(--primary);
@@ -38,11 +37,11 @@
     text-align: center;
 }
 
-.footer .box-container .box .share a:hover{
+.footer .box-container .box .share a:hover {
     background: var(--secondary);
 }
 
-.footer .box-container .box .link{
+.footer .box-container .box .link {
     display: block;
     font-size: 1.7rem;
     line-height: 2;
@@ -50,11 +49,11 @@
     padding: .5rem 0;
 }
 
-.footer .box-container .box .link:hover{
+.footer .box-container .box .link:hover {
     color: var(--hover);
 }
 
-.footer .credit{
+.footer .credit {
     margin-top: 3rem;
     padding-top: 3rem;
     font-size: 2rem;
@@ -64,6 +63,6 @@
     border-top: .1rem solid var(--secondary);
 }
 
-.footer .credit span{
+.footer .credit span {
     color: var(--secondary);
 }
