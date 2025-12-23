@@ -1,0 +1,115 @@
+:host {
+  display: block;
+}
+
+.treatments-container {
+  padding: 20px;
+}
+
+/* HEADER */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* FORM */
+.form-card {
+  margin-bottom: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* TABLE */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  font-weight: 600;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-header button {
+    width: 100%;
+  }
+
+  /* Hide table header */
+  .mat-header-row {
+    display: none;
+  }
+
+  /* Card rows */
+  .mat-row {
+    display: block;
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    box-shadow: 0 6px 16px rgba(16, 24, 40, 0.08);
+  }
+
+  .mat-cell {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mat-cell:last-child {
+    border-bottom: none;
+  }
+
+  /* Labels */
+  .mat-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+    min-width: 110px;
+  }
+
+  /* Action button full width */
+  .mat-cell[data-label="Action"] button {
+    width: 100%;
+  }
+}

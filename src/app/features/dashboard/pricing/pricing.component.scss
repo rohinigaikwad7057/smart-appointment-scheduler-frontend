@@ -1,0 +1,93 @@
+.pricing{
+    background: var(--light-bg);
+}
+
+.pricing .box-container{
+    display: flex;
+    flex-wrap: wrap;   
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;        
+}
+
+
+.pricing .box-container .box{
+    height: 46rem;
+    width: 100%;
+    max-width: 30rem;   /* desktop limit */
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+}
+
+.pricing .box-container .active{
+    background: var(--hover);
+}
+
+.pricing .box-container .box .title{
+    margin: 3rem 0;
+    font-size: 2.2rem;
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.pricing .box-container .box .price{
+    color: var(--primary);
+    margin-bottom: 5rem;
+}
+
+.pricing .box-container .box .price .currency{
+    font-size: 4rem;
+    line-height: 3.5rem;
+    font-weight: 300;
+}
+
+.pricing .box-container .box .price .amount{
+    font-size: 5.8rem;
+    line-height: 4.5rem;
+    font-weight: 700;
+}
+
+.pricing .box-container .box .price .duration{
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: .2rem;
+}
+
+.pricing .box-container .box ul li{
+    text-align: left;
+    font-size: 1.6rem;
+    padding-left: 3.5rem;
+    margin: 2rem auto;
+    color: var(--light-color);
+    text-transform: uppercase;
+}
+
+.pricing .box-container .box ul li i{
+    padding: 0 1rem;
+    color: var(--secondary);
+}
+@media (max-width: 768px) {
+    .pricing .box-container {
+        flex-direction: column;
+    }
+
+    .pricing .box-container .box {
+        max-width: 90%;
+        height: auto;
+    }
+}
+@media (max-width: 480px) {
+    .pricing .box-container .box .price .amount {
+        font-size: 4.5rem;
+    }
+
+    .pricing .box-container .box ul li {
+        font-size: 1.4rem;
+    }
+}

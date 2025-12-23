@@ -1,0 +1,53 @@
+<div class="profile-page">
+  <div class="profile-container">
+
+    <div class="profile-header">
+      <h2>My Profile</h2>
+      <p>Manage your personal information</p>
+    </div>
+
+    <div class="profile-card">
+
+      <h3 class="section-title">Personal Information</h3>
+
+      <form class="profile-form">
+
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Full Name</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput disabled />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput type="date" />
+        </mat-form-field>
+
+      </form>
+
+      <div class="actions">
+        <button mat-raised-button color="primary">
+          Save Changes
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

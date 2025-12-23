@@ -1,0 +1,171 @@
+<!-- <div class="booking-wrapper">
+
+  <div class="booking-card">
+
+    <h2 class="title">Book An Appointment</h2>
+    <p class="subtitle">Select Treatment, Doctor, and Available Slot</p>
+
+    <form (ngSubmit)="bookAppointment()"> -->
+
+      <!-- Patient -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Patient</mat-label>
+        <input matInput [value]="user.name" readonly>
+      </mat-form-field> -->
+
+      <!-- Treatment -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Treatment</mat-label>
+        <mat-select [(ngModel)]="selectedTreatment" name="treatmentId" required>
+          <mat-option *ngFor="let t of treatments" [value]="t._id">
+            {{ t.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <!-- Doctor -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Doctor</mat-label>
+        <mat-select [(ngModel)]="selectedDoctor" name="doctorId" required
+                    (selectionChange)="fetchSlots()">
+          <mat-option *ngFor="let d of doctors" [value]="d._id">
+            {{ d.name }} ({{ d.specialization }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <!-- Date -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select Date</mat-label>
+        <input matInput
+               [matDatepicker]="picker"
+               [(ngModel)]="selectedDate"
+               name="date"
+               required
+               [min]="minDate"
+               (dateChange)="fetchSlots()">
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+
+      <!-- Time slot -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Time Slot</mat-label>
+        <mat-select [(ngModel)]="selectedSlot" name="slot" required
+                    [disabled]="slotsFetched && slots.length === 0">
+          <mat-option *ngFor="let s of slots" [value]="s">
+            {{ s }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <!-- Symptoms -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Symptoms (Optional)</mat-label>
+        <textarea matInput [(ngModel)]="symptoms" name="symptoms"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="submit-btn" type="submit"
+              [disabled]="slotsFetched && slots.length === 0">
+        Book Appointment
+      </button>
+
+    </form>
+
+  </div>
+
+</div> -->
+
+<section class="booking-wrapper">
+  <div class="booking-card fade-in">
+
+    <div class="booking-grid">
+
+      <!-- Decorative side panel (hidden on small screens) -->
+      <aside class="booking-side" aria-hidden="true">
+        <div class="side-inner">
+          <img src="/assets/clinic.svg" alt="Clinic illustration" class="side-illustration" />
+          <h2>Book An Appointment</h2>
+          <p>Fast, secure booking — choose treatment, doctor and slot in a few clicks.</p>
+        </div>
+      </aside>
+
+      <!-- Form area -->
+      <div class="booking-form-wrap">
+
+        <div class="booking-header">
+          <h3>Book Appointment</h3>
+          <p class="muted">Select Treatment, Doctor And Available Slot</p>
+        </div>
+
+        <!-- Login CTA when not authenticated -->
+        <div *ngIf="!user" class="login-warning">
+          <p><strong>Please login</strong> to book an appointment.</p>
+          <button mat-raised-button color="primary" (click)="goToAppointment()">Login to Book</button>
+        </div>
+
+        <!-- Booking form for logged-in users -->
+        <form *ngIf="user" (ngSubmit)="bookAppointment()" class="booking-form">
+
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Patient</mat-label>
+              <input matInput [value]="user?.name" readonly aria-label="Patient name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Treatment</mat-label>
+              <mat-select [(ngModel)]="selectedTreatment" name="treatmentId" required aria-label="Treatment">
+                <mat-option *ngFor="let t of treatments" [value]="t._id">{{ t.name }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Doctor</mat-label>
+              <mat-select [(ngModel)]="selectedDoctor" name="doctorId" required (selectionChange)="fetchSlots()">
+                <mat-option *ngFor="let d of doctors" [value]="d._id">{{ d.name }} ({{ d.specialization }})</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Select Date</mat-label>
+              <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" name="date" required [min]="minDate" (dateChange)="fetchSlots()">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row single">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Time Slot</mat-label>
+              <mat-select [(ngModel)]="selectedSlot" name="slot" required [disabled]="slotsFetched && slots.length === 0" aria-label="Time slot">
+                <mat-option *ngFor="let s of slots" [value]="s">{{ s }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Symptoms (Optional)</mat-label>
+            <textarea matInput [(ngModel)]="symptoms" name="symptoms" aria-label="Symptoms (optional)"></textarea>
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-raised-button color="primary" class="btn-primary submit-btn" aria-label="Book appointment" type="submit" [disabled]="slotsFetched && slots.length === 0">Book Appointment</button>
+          </div>
+
+          <p class="cta-help">You’ll receive an email confirmation once your appointment is accepted.</p>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+

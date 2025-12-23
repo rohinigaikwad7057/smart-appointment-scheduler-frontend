@@ -1,0 +1,55 @@
+<div class="login-page">
+  <div class="wrap">
+    <form (ngSubmit)="login()">
+
+      <h1>Login</h1>
+
+      <!-- USER TYPE TOGGLE -->
+      <div class="user-type-toggle">
+        <a (click)="setUserType('patient')" [class.active]="userType === 'patient'">
+          Patient
+        </a>
+        <a (click)="setUserType('doctor')" [class.active]="userType === 'doctor'">
+          Doctor
+        </a>
+        <a (click)="setUserType('admin')" [class.active]="userType === 'admin'">
+          Admin
+        </a>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-box">
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-box">
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <!-- LOGIN BUTTON -->
+      <button type="submit" class="btn">Login</button>
+
+      <!-- REGISTER -->
+      <div class="register">
+        <p>
+          Don't have an account?
+          <a routerLink="/register">Register</a>
+        </p>
+      </div>
+
+    </form>
+  </div>
+</div>

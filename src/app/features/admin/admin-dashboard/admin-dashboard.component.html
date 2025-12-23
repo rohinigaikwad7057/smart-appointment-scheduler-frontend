@@ -1,0 +1,28 @@
+<div class="admin-dashboard">
+  <h2 class="title">Admin Dashboard</h2>
+
+  <div class="cards">
+    <div class="circle-card doctors">
+      <h3>{{ stats.doctorsCount }}</h3>
+      <p>Doctors</p>
+      <a routerLink="/admin/doctors">Manage</a>
+    </div>
+
+    <div class="circle-card treatments">
+      <h3>{{ stats.treatmentsCount }}</h3>
+      <p>Treatments</p>
+      <a routerLink="/admin/treatments">Manage</a>
+    </div>
+
+    <div class="circle-card appointments">
+      <h3>{{ stats.appointmentsCount }}</h3>
+      <p>Appointments</p>
+      <a routerLink="/admin/appointments">View</a>
+    </div>
+
+    <div class="circle-card patients">
+      <h3>{{ stats.patientsCount }}</h3>
+      <p>Patients</p>
+    </div>
+  </div>
+</div>

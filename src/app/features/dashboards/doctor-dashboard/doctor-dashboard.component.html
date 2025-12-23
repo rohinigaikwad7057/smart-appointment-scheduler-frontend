@@ -1,0 +1,32 @@
+<section class="dashboard-home">
+  <div class="content">
+    <h3>Make your smile shine</h3>
+    <p>Welcome to MyClinic, your health is our priority.</p>
+  </div>
+
+  <section class="dashboard">
+    <div class="stats-row">
+      <div class="stat-card">
+        <h2>{{ todayCount }}</h2>
+        <p>Today's Appointments</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>{{ upcomingDoctorCount }}</h2>
+        <p>Upcoming</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>{{ completedDoctorCount }}</h2>
+        <p>Completed</p>
+      </div>
+    </div>
+
+    <div class="role-actions">
+      <button class="circle-btn" (click)="goToAppointments()">My Appointments</button>
+      <button class="circle-btn" (click)="goToPatients()">Patients</button>
+      <button class="circle-btn" (click)="goToProfile()">My Profile</button>
+    </div>
+  </section>
+</section>
+

@@ -1,0 +1,133 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px 12px;
+}
+
+.doctor-table {
+  width: 100%;
+  max-width: 1100px;
+  background: #f5f6f8;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.search-field {
+  width: 260px;
+}
+
+/* Table */
+.table-wrapper {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+
+}
+
+/* Badges */
+.badge {
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 90px;
+  text-align: center;
+}
+
+.booked { background: #0288d1; }
+.accepted { background: #1976d2; }
+.completed { background: #2e7d32; }
+.rejected { background: #c62828; }
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .doctor-table {
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  /* Search full width */
+  .search-container {
+    justify-content: stretch;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  /* Tabs scroll horizontally */
+  mat-tab-group {
+    overflow-x: auto;
+  }
+
+  mat-tab-header {
+    min-width: max-content;
+  }
+
+  /* Hide table header */
+  .mat-header-row {
+    display: none;
+  }
+
+  /* Card rows */
+  .mat-row {
+    display: block;
+    background: #fff;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    padding: 14px;
+    box-shadow: 0 6px 16px rgba(16,24,40,0.08);
+  }
+
+  .mat-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .mat-cell:last-child {
+    border-bottom: none;
+  }
+
+  /* Labels (IMPORTANT FIX) */
+  .mat-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+    padding-right: 12px;
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+
+  /* Fix date & slot wrapping */
+  .mat-cell span,
+  .mat-cell div {
+    text-align: right;
+  }
+
+  /* Action buttons stack */
+  .mat-cell[data-label="Action"] {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mat-cell[data-label="Action"] button {
+    width: 100%;
+  }
+}
+

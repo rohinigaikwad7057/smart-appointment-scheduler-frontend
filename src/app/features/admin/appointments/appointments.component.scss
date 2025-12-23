@@ -1,0 +1,102 @@
+.appointments-container {
+  padding: 20px;
+}
+
+/* HEADER */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  font-weight: 600;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.count {
+  color: #666;
+  font-size: 14px;
+}
+
+/* GRID */
+.appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  max-width: 1100px;   /* ⬅ limit total width */
+  margin: 0 auto 24px; /* ⬅ center grid */
+}
+
+/* CARD */
+.appointment-card {
+  max-width: 360px;     /* ⬅ prevents big cards */
+  width: 100%;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+
+.appointment-card:hover {
+  transform: translateY(-4px);
+}
+
+/* CARD HEADER */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* CARD BODY */
+.card-body p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* UNASSIGNED */
+.unassigned {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+/* FOOTER */
+.card-footer {
+  margin-top: 12px;
+}
+
+/* STATUS BADGES */
+.status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.booked {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status.completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.cancelled {
+  background: #ffebee;
+  color: #c62828;
+}

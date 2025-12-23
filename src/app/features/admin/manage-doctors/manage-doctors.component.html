@@ -1,0 +1,112 @@
+<div class="page-header">
+  <h2 style="margin-bottom: 30px;">Manage Doctors</h2>
+
+  <!-- Show Add Doctor button only when form is hidden -->
+  <button class="pre-btn"
+    mat-raised-button
+    color="primary"
+    *ngIf="!showAddForm"
+    (click)="showAddForm = true">
+    <mat-icon>add</mat-icon>
+    Add Doctor
+  </button>
+</div>
+
+<!-- ADD DOCTOR FORM (Hidden initially) -->
+<mat-card class="doctor-card" *ngIf="showAddForm">
+
+  <div class="card-header">
+    <div>
+      <h2>👨‍⚕️ Add New Doctor</h2>
+    </div>
+
+    <!-- Close form button -->
+    <button mat-icon-button (click)="showAddForm = false">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="addDoctor()" class="doctor-form">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Doctor Name</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Specialization</mat-label>
+      <mat-icon matPrefix>medical_services</mat-icon>
+      <input matInput formControlName="specialization" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <mat-icon matPrefix>email</mat-icon>
+      <input matInput type="email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+
+    <!-- Experience + Button Row -->
+    <div class="experience-row">
+
+      <mat-form-field appearance="outline" class="experience-field">
+        <mat-label>Experience (Years)</mat-label>
+        <mat-icon matPrefix>badge</mat-icon>
+        <input matInput type="number" formControlName="experience" />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="add-btn"
+        [disabled]="form.invalid">
+        <mat-icon>check</mat-icon>
+        Add Doctor
+      </button>
+
+    </div>
+  </form>
+</mat-card>
+
+<!-- DOCTORS TABLE (Always visible) -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 40px;">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let d">{{ d.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="specialization">
+    <th mat-header-cell *matHeaderCellDef>Specialization</th>
+    <td mat-cell *matCellDef="let d">{{ d.specialization }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="experience">
+    <th mat-header-cell *matHeaderCellDef>Experience(Years)</th>
+    <td mat-cell *matCellDef="let d">{{ d.experience }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let d">
+      <button mat-button color="warn" (click)="removeDoctor(d._id)">
+        Remove
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons>
+</mat-paginator>

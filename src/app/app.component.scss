@@ -1,0 +1,133 @@
+/* ================= HEADER ================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* 🔥 IMPORTANT */
+}
+
+
+.header .logo {
+  letter-spacing: 0.3px;
+}
+
+/* ================= NAV ACTIONS ================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #333;
+}
+
+.btn {
+  background: #0a63b7;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 38px;
+}
+
+.btn:hover {
+  background: #084a8e;
+}
+
+.logout-btn {
+  background: #d32f2f;
+}
+
+.logout-btn:hover {
+  background: #b71c1c;
+}
+
+/* ================= MOBILE TOGGLE ================= */
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  color: #000;
+}
+
+/* DESKTOP */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+}
+
+/* ================= LAYOUT ================= */
+
+.layout-two {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.main-content {
+  flex: 1;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .layout-two {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-actions .user-role {
+    display: none;
+  }
+
+  .btn {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+}

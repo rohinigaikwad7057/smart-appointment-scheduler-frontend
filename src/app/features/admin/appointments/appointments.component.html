@@ -1,0 +1,102 @@
+<div class="appointments-container">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h2>All Appointments</h2>
+
+    <div class="filters">
+      <mat-button-toggle-group
+        [value]="filter"
+        (change)="applyFilter($event.value)">
+
+        <mat-button-toggle value="all">All</mat-button-toggle>
+        <mat-button-toggle value="upcoming">Upcoming</mat-button-toggle>
+        <mat-button-toggle value="past">Past</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <span class="count">
+        Showing {{ totalAppointments }} items
+      </span>
+    </div>
+  </div>
+
+  <!-- APPOINTMENTS GRID -->
+  <div class="appointments-grid">
+
+    <ng-container *ngIf="pagedAppointments.length; else noData">
+
+      <mat-card
+        class="appointment-card"
+        *ngFor="let appt of pagedAppointments">
+
+        <!-- CARD HEADER -->
+        <div class="card-header">
+          <h3>{{ appt.treatmentId?.name || 'Service' }}</h3>
+
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteAppointment(appt._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <!-- CARD BODY -->
+        <div class="card-body">
+          <p>
+            <strong>Patient:</strong>
+            {{ appt.patientId?.name || '—' }}
+          </p>
+
+          <p>
+            <strong>Doctor:</strong>
+            <span *ngIf="appt.doctorId?.name; else unassigned">
+              {{ appt.doctorId.name }}
+            </span>
+            <ng-template #unassigned>
+              <span class="unassigned">Not Assigned</span>
+            </ng-template>
+          </p>
+
+          <p>
+            <strong>Date:</strong>
+            {{ appt.date | date:'dd MMM yyyy' }}
+          </p>
+
+          <p>
+            <strong>Slot:</strong>
+            {{ appt.slot }}
+          </p>
+        </div>
+
+        <!-- CARD FOOTER -->
+        <div class="card-footer">
+          <span
+            class="status"
+            [ngClass]="appt.status?.toLowerCase()">
+            {{ appt.status }}
+          </span>
+        </div>
+
+      </mat-card>
+
+    </ng-container>
+
+    <!-- EMPTY STATE -->
+    <ng-template #noData>
+      <div class="empty-state">
+        No appointments found.
+      </div>
+    </ng-template>
+
+  </div>
+
+  <!-- ✅ PAGINATOR -->
+  <mat-paginator
+    [length]="totalAppointments"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[6, 12, 24]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+
+</div>

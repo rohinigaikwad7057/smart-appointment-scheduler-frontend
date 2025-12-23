@@ -1,0 +1,17 @@
+/* First changes: 2025-12-22 — Basic dialog content styling and responsive rules */
+.dialog-content {
+  max-width: 560px;
+  width: 100%;
+  padding: 18px 20px;
+  box-sizing: border-box;
+}
+
+.dialog-title { font-size: 20px; font-weight:600; margin-bottom:8px; }
+.dialog-body { font-size: 14px; color:#334; }
+.dialog-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:12px; }
+
+@media (max-width: 480px) {
+  .dialog-content { padding: 12px; }
+  .dialog-actions { flex-direction: column-reverse; align-items: stretch; }
+  .dialog-title { font-size: 18px; }
+}

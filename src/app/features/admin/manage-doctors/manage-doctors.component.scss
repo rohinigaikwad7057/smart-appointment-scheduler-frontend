@@ -1,0 +1,84 @@
+/* Card spacing */
+.doctor-card {
+  padding: 20px;
+}
+
+/* Grid layout for form */
+.doctor-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* spacing between all fields */
+}
+
+/* Full width fields */
+.doctor-form mat-form-field {
+  width: 100%;
+}
+/* Experience + button row */
+.experience-row {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Limit experience width */
+.experience-field {
+  max-width: 320px;   /* controls length */
+  width: 100%;
+}
+
+/* Add Doctor button */
+.add-btn {
+  height: 56px;
+  padding: 0 28px;
+  white-space: nowrap;
+  margin-bottom: 20px;
+
+}
+pre-btn {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .experience-row {
+    grid-column: span 2;
+  }
+
+  .experience-field {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .experience-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left h2 {
+  margin: 0;
+}
+
+.header-left p {
+  margin: 4px 0 0;
+  color: #666;
+}
+
+.close-btn {
+  margin-left: auto;
+}

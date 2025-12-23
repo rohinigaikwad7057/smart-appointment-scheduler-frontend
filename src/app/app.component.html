@@ -1,0 +1,27 @@
+
+<header class="header" *ngIf="showHeader ">
+  <a class="logo">
+    <i class="fas fa-tooth"></i> MyClinic
+  </a>
+
+  <!-- ☰ MOBILE MENU -->
+  <button
+    class="menu-btn"
+    *ngIf="showSidebar"
+    (click)="toggleMobileMenu()">
+    ☰
+  </button>
+</header>
+
+<div class="layout-two" *ngIf="showSidebar">
+  <app-sidebar
+    [open]="mobileMenuOpen"
+    [role]="role">
+  </app-sidebar>
+
+  <main class="main-content" (click)="closeMobile()">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<router-outlet *ngIf="!showSidebar"></router-outlet>

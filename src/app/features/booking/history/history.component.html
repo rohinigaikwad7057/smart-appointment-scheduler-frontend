@@ -1,0 +1,83 @@
+<div class="appointments-container">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <h2>Appointment History</h2>
+
+    <div class="filters">
+      <mat-button-toggle-group
+        [value]="filterType"
+        (change)="filterType = $event.value; applyFilter()">
+
+        <mat-button-toggle value="upcoming">
+          Upcoming
+        </mat-button-toggle>
+
+        <mat-button-toggle value="past">
+          Past
+        </mat-button-toggle>
+
+      </mat-button-toggle-group>
+
+      <span class="count">
+        {{ totalAppointments }} appointments
+      </span>
+    </div>
+  </div>
+
+  <!-- APPOINTMENTS GRID -->
+  <div class="appointments-grid">
+
+    <ng-container *ngIf="pagedAppointments.length; else empty">
+      <mat-card
+        class="appointment-card"
+        *ngFor="let appt of pagedAppointments">
+
+        <!-- HEADER -->
+        <div class="card-header">
+          <h3>{{ appt.treatmentId?.name }}</h3>
+
+          <button
+            mat-icon-button
+            color="warn"
+            *ngIf="filterType === 'upcoming'"
+            (click)="cancelAppointment(appt._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body">
+          <p><strong>Doctor:</strong> {{ appt.doctorId?.name }}</p>
+          <p><strong>Specialization:</strong> {{ appt.doctorId?.specialization }}</p>
+          <p><strong>Date:</strong> {{ appt.date | date:'dd MMM yyyy' }}</p>
+          <p><strong>Slot:</strong> {{ appt.slot }}</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="card-footer">
+          <span class="status" [ngClass]="appt.status.toLowerCase()">
+            {{ appt.status }}
+          </span>
+        </div>
+
+      </mat-card>
+    </ng-container>
+
+    <ng-template #empty>
+      <div class="empty-state">
+        No appointments found.
+      </div>
+    </ng-template>
+
+  </div>
+
+  <!-- PAGINATOR -->
+  <mat-paginator
+    [length]="totalAppointments"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[6, 12, 24]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+
+</div>

@@ -1,0 +1,176 @@
+:host {
+  display: block;
+}
+
+/* ======================
+   CONTAINER
+====================== */
+.appointments-container {
+  padding: 24px;
+  background: #f5f7fb;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ======================
+   HEADER
+====================== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.page-header h2 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.count {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* ======================
+   GRID
+====================== */
+.appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ======================
+   CARD
+====================== */
+.appointment-card {
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  word-break: break-word;
+}
+
+.card-body p {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* ======================
+   STATUS
+====================== */
+.status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status.booked {
+  background: #e3fcef;
+  color: #0f9d58;
+}
+
+.status.completed {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status.cancelled {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* ======================
+   EMPTY STATE
+====================== */
+.empty-state {
+  text-align: center;
+  color: #777;
+  padding: 40px;
+  grid-column: 1 / -1;
+}
+
+/* ======================
+   PAGINATOR
+====================== */
+mat-paginator {
+  margin-top: 24px;
+  background: transparent;
+}
+
+/* ======================
+   MOBILE
+====================== */
+@media (max-width: 600px) {
+
+  .appointments-container {
+    padding: 12px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  mat-button-toggle-group {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .appointments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ======================
+   TABLET
+====================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .appointments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

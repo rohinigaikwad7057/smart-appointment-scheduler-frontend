@@ -1,0 +1,46 @@
+<header class="header">
+  <a class="logo">
+    <i class="fas fa-tooth"></i> dentist
+  </a>
+
+  <nav class="navbar">
+    <a href="#home" [class.active]="activeSection === 'home'">Home</a>
+    <a href="#about" [class.active]="activeSection === 'about'">About</a>
+    <a href="#services" [class.active]="activeSection === 'services'">Services</a>
+    <a href="#pricing" [class.active]="activeSection === 'pricing'">Pricing</a>
+    <a href="#blog" [class.active]="activeSection === 'blog'">Blog</a>
+  </nav>
+
+  <button class="btn" (click)="goToAppointment()">Make Appointment</button>
+</header>
+
+<!-- HERO -->
+<section id="home" class="home">
+  <div class="content">
+    <h3>Make your smile shine</h3>
+    <p>
+      Professional dental care with modern technology and expert doctors.
+    </p>
+    <button class="btn" (click)="goToAppointment()">Book Now</button>
+  </div>
+</section>
+
+<section id="about">
+  <app-about></app-about>
+</section>
+
+<section id="services">
+  <app-services></app-services>
+</section>
+
+<section id="pricing" class="pricing">
+ <app-pricing></app-pricing>
+</section>
+
+<section id="blog">
+  <app-blogs></app-blogs>
+</section>
+
+<footer class="footer">
+<app-contacts></app-contacts>
+</footer>

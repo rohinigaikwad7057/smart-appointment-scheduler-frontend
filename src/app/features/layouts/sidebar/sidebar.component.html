@@ -1,0 +1,28 @@
+<aside class="sidebar" [class.open]="open">
+
+  <!-- PATIENT -->
+  <ng-container *ngIf="role === 'patient'">
+    <a routerLink="/patient/dashboard" (click)="closeSidebar()">🏠 Dashboard</a>
+    <a routerLink="/patient/book" (click)="closeSidebar()">🩺 Book Appointment</a>
+    <a routerLink="/patient/history" (click)="closeSidebar()">📅 My Appointments</a>
+    <hr />
+    <a (click)="logout()">🚪 Logout</a>
+  </ng-container>
+
+  <!-- DOCTOR -->
+  <ng-container *ngIf="role === 'doctor'">
+    <a routerLink="/doctor/dashboard" (click)="closeSidebar()">🏠 Dashboard</a>
+    <a routerLink="/doctor/appointments" (click)="closeSidebar()">👨‍⚕️ Appointments</a>
+    <a (click)="logout()">🚪 Logout</a>
+  </ng-container>
+
+  <!-- ADMIN -->
+  <ng-container *ngIf="role === 'admin'">
+    <a routerLink="/admin/dashboard" (click)="closeSidebar()">📊 Dashboard</a>
+    <a routerLink="/admin/doctors" (click)="closeSidebar()">👩‍⚕️ Doctors</a>
+    <a routerLink="/admin/treatments" (click)="closeSidebar()">🧾 Treatments</a>
+    <a routerLink="/admin/appointments" (click)="closeSidebar()">📅 Appointments</a>
+    <a (click)="logout()">🚪 Logout</a>
+  </ng-container>
+
+</aside>
