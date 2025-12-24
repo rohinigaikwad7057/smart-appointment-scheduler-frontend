@@ -23,6 +23,8 @@ export class LoginComponent {
 
   setUserType(type: 'patient' | 'doctor' | 'admin') {
     this.userType = type;
+    this.email = '';
+    this.password = '';
   }
 
 
@@ -50,9 +52,11 @@ export class LoginComponent {
     if (this.userType === 'doctor') {
       this.auth.loginDoctor(payload).subscribe({
         next: (res: any) => {
+           this.snack.open('Registration successful! Please login.', 'OK', { duration: 3000 });
           localStorage.setItem('token', res.token);
           localStorage.setItem('role', 'doctor');
-          this.router.navigate(['doctor/dashboard']);
+          this.snack.open('Doctor login successful!', 'OK', { duration: 2000 });
+          setTimeout(() => this.router.navigate(['doctor/dashboard']), 2000);
         },
         error: () => this.snack.open('Invalid doctor credentials', 'OK', { duration: 3000 })
       });
@@ -65,7 +69,8 @@ export class LoginComponent {
         next: (res: any) => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('role', 'admin');
-          this.router.navigate(['/admin/dashboard']);
+          this.snack.open('Admin login successful!', 'OK', { duration: 2000 });
+          setTimeout(() => this.router.navigate(['/admin/dashboard']), 2000);
         },
         error: () => this.snack.open('Invalid admin credentials', 'OK', { duration: 3000 })
       });
@@ -78,7 +83,9 @@ export class LoginComponent {
         localStorage.setItem('token', res.token);
         localStorage.setItem('role', 'patient');
         localStorage.setItem('user', JSON.stringify(res.user));
-        this.router.navigate(['/patient/dashboard']);
+        this.snack.open('Patient login successful!', 'OK', { duration: 2000 });
+
+  setTimeout(() => this.router.navigate(['/patient/dashboard']), 2000)
       },
       error: () => this.snack.open('Invalid patient credentials', 'OK', { duration: 3000 })
     });

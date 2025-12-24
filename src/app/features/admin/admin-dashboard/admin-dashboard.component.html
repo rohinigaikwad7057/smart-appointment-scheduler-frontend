@@ -1,6 +1,18 @@
 <div class="admin-dashboard">
-  <h2 class="title">Admin Dashboard</h2>
 
+  <!-- Welcome Banner -->
+  <!-- <div class="welcome-section">
+    <div class="welcome-text">
+      <h1>Welcome Back, Admin 👋</h1>
+      <p>Manage your clinic efficiently with real-time statistics.</p>
+    </div>
+
+    <div class="welcome-image">
+      <img src="assets/admin-dashboard.svg" alt="Dashboard">
+    </div>
+  </div> -->
+
+  <!-- Statistics Cards -->
   <div class="cards">
     <div class="circle-card doctors">
       <h3>{{ stats.doctorsCount }}</h3>
@@ -25,4 +37,16 @@
       <p>Patients</p>
     </div>
   </div>
+
+  <!-- Activity Panel -->
+  <div class="activity-section">
+    <h3>System Activity</h3>
+    <ul>
+      <li>🧑‍⚕️ New doctor registered today</li>
+      <li>📅 {{ stats.appointmentsCount }} total appointments</li>
+      <li>💊 {{ stats.treatmentsCount }} treatments available</li>
+      <li>👥 {{ stats.patientsCount }} patients in system</li>
+    </ul>
+  </div>
+
 </div>

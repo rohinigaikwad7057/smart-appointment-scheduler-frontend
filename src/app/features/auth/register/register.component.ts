@@ -32,11 +32,22 @@ export class RegisterComponent {
 
   constructor(private auth: AuthService, private router: Router, private snack: MatSnackBar) { }
 
-  register() {
-    if (!this.name || !this.email || !this.password) { this.snack.open('All fields required', 'OK', { duration: 3000 }); return; }
-
-    this.auth.registerPatient({ name: this.name, email: this.email, password: this.password })
-      .subscribe(() => this.router.navigate(['/login']),
-        () => this.snack.open('Registration failed', 'OK', { duration: 3000 }));
+ register() {
+  if (!this.name || !this.email || !this.password) {
+    this.snack.open('All fields required', 'OK', { duration: 3000 });
+    return;
   }
+
+  this.auth.registerPatient({ name: this.name, email: this.email, password: this.password })
+    .subscribe(
+      () => {
+        this.snack.open('Registration successful! Please login.', 'OK', { duration: 3000 });
+        this.router.navigate(['/login']);
+      },
+      () => {
+        this.snack.open('Registration failed', 'OK', { duration: 8000 });
+      }
+    );
+}
+
 }
