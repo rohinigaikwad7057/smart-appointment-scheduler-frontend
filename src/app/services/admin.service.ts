@@ -4,46 +4,49 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AdminService {
-  url = `${environment.apiUrl}`; // Base URL
-  constructor(private http: HttpClient) { }
+  url = environment.apiUrl;
+
+  constructor(private http: HttpClient) {}
 
   // Treatments
   addTreatment(payload: any) {
-    return this.http.post(`${this.url}/treatments/add`, payload);
+    return this.http.post(`${this.url}/api/treatments/add`, payload);
   }
+
   deleteTreatment(id: string) {
-    return this.http.delete(`${this.url}/treatments/${id}`);
+    return this.http.delete(`${this.url}/api/treatments/${id}`);
   }
+
   getTreatments() {
-    return this.http.get<any[]>(`${this.url}/treatments`);
+    return this.http.get<any[]>(`${this.url}/api/treatments`);
   }
 
   // Doctors
   addDoctor(payload: any) {
-    return this.http.post(`${this.url}/doctors/add`, payload);
+    return this.http.post(`${this.url}/api/doctors/add`, payload);
   }
 
   getDoctors() {
-    return this.http.get<any[]>(`${this.url}/doctors`);
+    return this.http.get<any[]>(`${this.url}/api/doctors`);
   }
 
   deleteDoctor(id: string) {
     return this.http.delete<{ message: string }>(
-      `${this.url}/doctors/${id}`
+      `${this.url}/api/doctors/${id}`
     );
   }
 
   // Appointments
   getAppointments() {
-    return this.http.get<any[]>(`${this.url}/appointments/all`);
+    return this.http.get<any[]>(`${this.url}/api/appointments/all`);
   }
 
   deleteAppointment(id: string) {
-    return this.http.delete(`${this.url}/appointments/${id}`);
+    return this.http.delete(`${this.url}/api/appointments/${id}`);
   }
 
   // Dashboard
   getDashboard() {
-    return this.http.get(`${this.url}/admin/dashboard`);
+    return this.http.get(`${this.url}/api/admin/dashboard`);
   }
 }
