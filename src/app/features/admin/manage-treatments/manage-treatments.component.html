@@ -43,6 +43,19 @@
       <mat-label>Description</mat-label>
       <textarea matInput rows="2" formControlName="description"></textarea>
     </mat-form-field>
+    <div class="experience-row">
+
+      <mat-form-field appearance="outline" class="experience-field">
+        <mat-label>Description</mat-label>
+       <textarea matInput rows="2" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="add-btn" [disabled]="form.invalid">
+        <mat-icon>check</mat-icon>
+        Add Treatment
+      </button>
+
+    </div>
 
   </form>
 </mat-card>

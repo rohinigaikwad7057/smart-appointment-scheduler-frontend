@@ -113,3 +113,30 @@ th {
     width: 100%;
   }
 }
+.experience-row {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media (max-width: 1024px) {
+  .experience-row {
+    grid-column: span 2;
+  }
+
+  .experience-field {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .experience-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
