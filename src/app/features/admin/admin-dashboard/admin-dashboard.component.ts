@@ -4,13 +4,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { AdminService } from '../../../services/admin.service';
-import { BaseChartDirective } from 'ng2-charts';
+
 
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule,BaseChartDirective],
+  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.scss'
 })
