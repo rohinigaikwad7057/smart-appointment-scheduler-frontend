@@ -12,9 +12,10 @@ export class AuthService {
   // ---------------------------
   // 🔐 ADMIN AUTH
   // ---------------------------
-  adminLogin(payload: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/admin/login`, payload);
-  }
+adminLogin(payload: any): Observable<any> {
+  return this.http.post(`${this.baseUrl}/api/admin/login`, payload);
+}
+
 
   createAdmin(payload: any): Observable<any> {
     const token = this.getToken();
