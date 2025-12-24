@@ -80,6 +80,21 @@ pragati
 User Credential
 rani123
 rani123
+Screenshot Folder Structure
+/screenshots
+ ├── admin/
+ │     ├── dashboard.png
+ │     ├── doctors.png
+ │     └── appointments.png
+ ├── doctor/
+ │     ├── dashboard.png
+ │     └── appointments.png
+ ├── patient/
+ │     ├── dashboard.png
+ │     └── book-appointment.png
+ └── auth/
+       ├── login.png
+       └── register.png
 
 ⚠️ These are sample credentials for local testing only.
 
