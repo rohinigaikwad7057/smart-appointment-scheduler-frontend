@@ -22,7 +22,7 @@
     </button>
   </div>
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="addTreatment()" class="doctor-form">
 
     <mat-form-field appearance="outline">
       <mat-label>Treatment Name</mat-label>
