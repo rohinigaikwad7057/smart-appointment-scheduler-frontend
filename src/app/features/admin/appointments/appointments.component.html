@@ -1,36 +1,47 @@
-<div class="appointments-container">
+<div class="appointments-container" role="main" aria-label="Appointments page">
 
   <!-- PAGE HEADER -->
   <div class="page-header">
-    <h2>All Appointments</h2>
+    <h1>All Appointments</h1>
 
-    <div class="filters">
-      <mat-button-toggle-group [value]="filter" (change)="applyFilter($event.value)">
+    <div class="filters" role="region" aria-label="Appointment Filters">
+      <mat-button-toggle-group 
+        [value]="filter" 
+        (change)="applyFilter($event.value)"
+        aria-label="Filter appointments">
 
-        <mat-button-toggle value="all">All</mat-button-toggle>
-        <mat-button-toggle value="upcoming">Upcoming</mat-button-toggle>
-        <mat-button-toggle value="past">Past</mat-button-toggle>
+        <mat-button-toggle value="all" aria-label="Show all appointments">All</mat-button-toggle>
+        <mat-button-toggle value="upcoming" aria-label="Show upcoming appointments">Upcoming</mat-button-toggle>
+        <mat-button-toggle value="past" aria-label="Show past appointments">Past</mat-button-toggle>
       </mat-button-toggle-group>
 
-      <span class="count">
+      <span class="count" aria-live="polite">
         Showing {{ totalAppointments }} items
       </span>
     </div>
   </div>
 
   <!-- APPOINTMENTS GRID -->
-  <div class="appointments-grid">
+  <div class="appointments-grid" role="region" aria-label="Appointment list">
 
     <ng-container *ngIf="pagedAppointments.length; else noData">
 
-      <mat-card class="appointment-card" *ngFor="let appt of pagedAppointments">
+      <mat-card 
+        class="appointment-card" 
+        *ngFor="let appt of pagedAppointments"
+        role="article"
+        aria-label="Appointment details">
 
         <!-- CARD HEADER -->
         <div class="card-header">
-          <h3>{{ appt.treatmentId?.name || 'Service' }}</h3>
+          <h2>{{ appt.treatmentId?.name || 'Service' }}</h2>
 
-          <button mat-icon-button color="warn" (click)="deleteAppointment(appt._id)">
-            <mat-icon>delete</mat-icon>
+          <button 
+            mat-icon-button 
+            color="warn" 
+            (click)="deleteAppointment(appt._id)"
+            aria-label="Delete appointment">
+            <mat-icon aria-hidden="true">delete</mat-icon>
           </button>
         </div>
 
@@ -47,7 +58,7 @@
               {{ appt.doctorId.name }}
             </span>
             <ng-template #unassigned>
-              <span class="unassigned">Not Assigned</span>
+              <span class="unassigned" aria-label="Doctor not assigned">Not Assigned</span>
             </ng-template>
           </p>
 
@@ -64,7 +75,10 @@
 
         <!-- CARD FOOTER -->
         <div class="card-footer">
-          <span class="status" [ngClass]="appt.status?.toLowerCase()">
+          <span 
+            class="status" 
+            [ngClass]="appt.status?.toLowerCase()"
+            aria-label="Appointment status">
             {{ appt.status }}
           </span>
         </div>
@@ -75,16 +89,20 @@
 
     <!-- EMPTY STATE -->
     <ng-template #noData>
-      <div class="empty-state">
+      <div class="empty-state" role="status" aria-live="polite">
         No appointments found.
       </div>
     </ng-template>
 
   </div>
 
-  <!-- ✅ PAGINATOR -->
-  <mat-paginator [length]="totalAppointments" [pageSize]="pageSize" [pageSizeOptions]="[6, 12, 24]"
-    (page)="onPageChange($event)">
+  <!-- PAGINATOR -->
+  <mat-paginator 
+    [length]="totalAppointments" 
+    [pageSize]="pageSize" 
+    [pageSizeOptions]="[6, 12, 24]"
+    (page)="onPageChange($event)"
+    aria-label="Appointments pagination">
   </mat-paginator>
 
 </div>

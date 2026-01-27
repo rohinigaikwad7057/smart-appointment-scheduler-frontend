@@ -128,5 +128,24 @@ html::-webkit-scrollbar-thumb{
     color: var(--primary);
 }
 
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Keyboard focus visibility */
+a:focus, button:focus {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
+
+
 
 

@@ -1,28 +1,51 @@
-<aside class="sidebar" [class.open]="open">
+<aside 
+  class="sidebar" 
+  [class.open]="open"
+  role="navigation"
+  aria-label="Main sidebar navigation"
+  [attr.aria-hidden]="!open">
 
   <!-- PATIENT -->
-  <ng-container *ngIf="role === 'patient'">
-    <a routerLink="/patient/dashboard" (click)="closeSidebar()">🏠 Dashboard</a>
-    <a routerLink="/patient/book" (click)="closeSidebar()">🩺 Book Appointment</a>
-    <a routerLink="/patient/history" (click)="closeSidebar()">📅 My Appointments</a>
-    <hr />
-    <a (click)="logout()">🚪 Logout</a>
-  </ng-container>
+  <nav *ngIf="role === 'patient'" aria-label="Patient menu">
+    <a routerLink="/patient/dashboard" (click)="closeSidebar()" aria-label="Go to patient dashboard">
+      <span aria-hidden="true">🏠</span> Dashboard
+    </a>
+    <a routerLink="/patient/book" (click)="closeSidebar()" aria-label="Book a new appointment">
+      <span aria-hidden="true">🩺</span> Book Appointment
+    </a>
+    <a routerLink="/patient/history" (click)="closeSidebar()" aria-label="View appointment history">
+      <span aria-hidden="true">📅</span> My Appointments
+    </a>
+    <hr aria-hidden="true" />
+   <a (click)="logout()">🚪 Logout</a>
+  </nav>
 
   <!-- DOCTOR -->
-  <ng-container *ngIf="role === 'doctor'">
-    <a routerLink="/doctor/dashboard" (click)="closeSidebar()">🏠 Dashboard</a>
-    <a routerLink="/doctor/appointments" (click)="closeSidebar()">👨‍⚕️ Appointments</a>
+  <nav *ngIf="role === 'doctor'" aria-label="Doctor menu">
+    <a routerLink="/doctor/dashboard" (click)="closeSidebar()" aria-label="Go to doctor dashboard">
+      <span aria-hidden="true">🏠</span> Dashboard
+    </a>
+    <a routerLink="/doctor/appointments" (click)="closeSidebar()" aria-label="View doctor appointments">
+      <span aria-hidden="true">👨‍⚕️</span> Appointments
+    </a>
     <a (click)="logout()">🚪 Logout</a>
-  </ng-container>
+  </nav>
 
   <!-- ADMIN -->
-  <ng-container *ngIf="role === 'admin'">
-    <a routerLink="/admin/dashboard" (click)="closeSidebar()">📊 Dashboard</a>
-    <a routerLink="/admin/doctors" (click)="closeSidebar()">👩‍⚕️ Doctors</a>
-    <a routerLink="/admin/treatments" (click)="closeSidebar()">🧾 Treatments</a>
-    <a routerLink="/admin/appointments" (click)="closeSidebar()">📅 Appointments</a>
-    <a (click)="logout()">🚪 Logout</a>
-  </ng-container>
+  <nav *ngIf="role === 'admin'" aria-label="Admin menu">
+    <a routerLink="/admin/dashboard" (click)="closeSidebar()" aria-label="Go to admin dashboard">
+      <span aria-hidden="true">📊</span> Dashboard
+    </a>
+    <a routerLink="/admin/doctors" (click)="closeSidebar()" aria-label="Manage doctors">
+      <span aria-hidden="true">👩‍⚕️</span> Doctors
+    </a>
+    <a routerLink="/admin/treatments" (click)="closeSidebar()" aria-label="Manage treatments">
+      <span aria-hidden="true">🧾</span> Treatments
+    </a>
+    <a routerLink="/admin/appointments" (click)="closeSidebar()" aria-label="Manage appointments">
+      <span aria-hidden="true">📅</span> Appointments
+    </a>
+   <a (click)="logout()">🚪 Logout</a>
+  </nav>
 
 </aside>

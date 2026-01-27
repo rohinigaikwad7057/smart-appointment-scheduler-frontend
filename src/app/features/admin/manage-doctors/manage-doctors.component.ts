@@ -27,7 +27,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   templateUrl: './manage-doctors.component.html',
   styleUrl: './manage-doctors.component.scss'

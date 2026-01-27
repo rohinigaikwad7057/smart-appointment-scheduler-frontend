@@ -1,6 +1,6 @@
-<h2 mat-dialog-title>Appointment Details</h2>
+<h2 mat-dialog-title id="appointmentDialogTitle">Appointment Details</h2>
 
-<mat-dialog-content>
+<mat-dialog-content aria-labelledby="appointmentDialogTitle" role="document">
   <p><strong>Patient:</strong> {{ data.patientId?.name }}</p>
   <p><strong>Email:</strong> {{ data.patientId?.email }}</p>
   <p><strong>Phone:</strong> {{ data.patientId?.phone }}</p>
@@ -11,13 +11,26 @@
 
   <mat-form-field appearance="outline" class="full-width" style="width:100%; margin-top:12px;">
     <mat-label>Doctor Notes</mat-label>
-    <textarea matInput rows="5" [(ngModel)]="data.notes"></textarea>
+    <textarea 
+      matInput 
+      rows="5" 
+      [(ngModel)]="data.notes"
+      aria-label="Doctor notes for this appointment">
+    </textarea>
   </mat-form-field>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-button (click)="close()">Close</button>
-  <button mat-raised-button color="primary" (click)="saveNotes()" [disabled]="savingNotes">
+  <button mat-button (click)="close()" aria-label="Close appointment details dialog">
+    Close
+  </button>
+
+  <button 
+    mat-raised-button 
+    color="primary" 
+    (click)="saveNotes()" 
+    [disabled]="savingNotes"
+    aria-label="Save doctor notes">
     {{ savingNotes ? 'Saving...' : 'Save Notes' }}
   </button>
 </mat-dialog-actions>

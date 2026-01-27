@@ -1,56 +1,68 @@
-<section class="pricing" id="pricing">
+<section class="pricing" id="pricing" role="region" aria-labelledby="pricingHeading">
 
-    <h1 class="heading">pricing plan</h1>
+    <h1 id="pricingHeading" class="heading">Pricing Plan</h1>
 
-    <div class="box-container">
+    <div class="box-container" role="list">
 
-        <div class="box">
-            <h3 class="title">basic</h3>
-            <div class="price">
-                <span class="currency">$</span>
+        <!-- BASIC PLAN -->
+        <article class="box" role="listitem" aria-labelledby="basicPlanTitle">
+            <h2 id="basicPlanTitle" class="title">Basic</h2>
+
+            <div class="price" aria-label="Price 18 dollars per year">
+                <span class="currency" aria-hidden="true">$</span>
                 <span class="amount">18</span>
                 <span class="duration"> /year</span>
             </div>
-            <ul>
-                <li> <i class="fas fa-check"></i> alignment specialist</li>
-                <li> <i class="fas fa-check"></i> cavity inspection</li>
-                <li> <i class="fas fa-check"></i> cosmetic dentistry</li>
-                <li> <i class="fas fa-check"></i> oral hygiene experts</li>
-            </ul>
-            <a href="#" class="btn">read more </a>
-        </div>
 
-        <div class="box active">
-            <h3 class="title">standard</h3>
-            <div class="price">
-                <span class="currency">$</span>
+            <ul aria-label="Basic plan features">
+                <li><i class="fas fa-check" aria-hidden="true"></i> Alignment specialist</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Cavity inspection</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Cosmetic dentistry</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Oral hygiene experts</li>
+            </ul>
+
+            <a href="#" class="btn" aria-label="Read more about Basic plan">Read more</a>
+        </article>
+
+        <!-- STANDARD PLAN -->
+        <article class="box active" role="listitem" aria-labelledby="standardPlanTitle">
+            <h2 id="standardPlanTitle" class="title">Standard</h2>
+
+            <div class="price" aria-label="Price 30 dollars per year">
+                <span class="currency" aria-hidden="true">$</span>
                 <span class="amount">30</span>
                 <span class="duration"> /year</span>
             </div>
-            <ul>
-                <li> <i class="fas fa-check"></i> alignment specialist</li>
-                <li> <i class="fas fa-check"></i> cavity inspection</li>
-                <li> <i class="fas fa-check"></i> cosmetic dentistry</li>
-                <li> <i class="fas fa-check"></i> oral hygiene experts</li>
-            </ul>
-            <a href="#" class="btn">read more </a>
-        </div>
 
-        <div class="box">
-            <h3 class="title">premium</h3>
-            <div class="price">
-                <span class="currency">$</span>
+            <ul aria-label="Standard plan features">
+                <li><i class="fas fa-check" aria-hidden="true"></i> Alignment specialist</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Cavity inspection</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Cosmetic dentistry</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Oral hygiene experts</li>
+            </ul>
+
+            <a href="#" class="btn" aria-label="Read more about Standard plan">Read more</a>
+        </article>
+
+        <!-- PREMIUM PLAN -->
+        <article class="box" role="listitem" aria-labelledby="premiumPlanTitle">
+            <h2 id="premiumPlanTitle" class="title">Premium</h2>
+
+            <div class="price" aria-label="Price 50 dollars per year">
+                <span class="currency" aria-hidden="true">$</span>
                 <span class="amount">50</span>
                 <span class="duration"> /year</span>
             </div>
-            <ul>
-                <li> <i class="fas fa-check"></i> alignment specialist</li>
-                <li> <i class="fas fa-check"></i> cavity inspection</li>
-                <li> <i class="fas fa-check"></i> cosmetic dentistry</li>
-                <li> <i class="fas fa-check"></i> oral hygiene experts</li>
+
+            <ul aria-label="Premium plan features">
+                <li><i class="fas fa-check" aria-hidden="true"></i> Alignment specialist</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Cavity inspection</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Cosmetic dentistry</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Oral hygiene experts</li>
             </ul>
-            <a href="#" class="btn">read more </a>
-        </div>
+
+            <a href="#" class="btn" aria-label="Read more about Premium plan">Read more</a>
+        </article>
 
     </div>
 

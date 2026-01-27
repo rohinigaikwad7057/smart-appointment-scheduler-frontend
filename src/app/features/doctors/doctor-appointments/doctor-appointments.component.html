@@ -1,9 +1,13 @@
-<div class="page-container">
+<div class="page-container" role="main" aria-label="Doctor Appointments Dashboard">
   <div class="doctor-table mat-elevation-z8">
-    <h2>All Appointments</h2>
+
+    <h1>All Appointments</h1>
 
     <!-- Tabs -->
-    <mat-tab-group (selectedTabChange)="filterTab($event)" class="tabs">
+    <mat-tab-group 
+      (selectedTabChange)="filterTab($event)" 
+      class="tabs"
+      aria-label="Filter appointments by status">
       <mat-tab label="All"></mat-tab>
       <mat-tab label="Today"></mat-tab>
       <mat-tab label="Upcoming"></mat-tab>
@@ -11,20 +15,29 @@
     </mat-tab-group>
 
     <!-- Search -->
-    <div class="search-container">
+    <div class="search-container" role="search">
       <mat-form-field appearance="outline" class="search-field">
-        <mat-icon matPrefix>search</mat-icon>
-        <input matInput placeholder="Search appointments" (keyup)="applyFilter($event)">
+        <mat-label>Search appointments</mat-label>
+        <mat-icon matPrefix aria-hidden="true">search</mat-icon>
+        <input 
+          matInput 
+          placeholder="Search appointments"
+          (keyup)="applyFilter($event)"
+          aria-label="Search appointments by patient name, date, or status">
       </mat-form-field>
     </div>
 
     <!-- Table -->
-    <div class="table-wrapper">
-      <table mat-table [dataSource]="dataSource" matSort>
+    <div class="table-wrapper" role="region" aria-label="Appointments table">
+      <table mat-table [dataSource]="dataSource" matSort aria-describedby="tableDescription">
+
+        <caption id="tableDescription" class="visually-hidden">
+          List of patient appointments with actions to manage status
+        </caption>
 
         <!-- Index -->
         <ng-container matColumnDef="index">
-          <th mat-header-cell *matHeaderCellDef>#</th>
+          <th mat-header-cell *matHeaderCellDef scope="col">#</th>
           <td mat-cell *matCellDef="let row; let i = index" data-label="#">
             {{ i + 1 }}
           </td>
@@ -32,7 +45,7 @@
 
         <!-- Patient -->
         <ng-container matColumnDef="patient">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Patient</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">Patient</th>
           <td mat-cell *matCellDef="let row" data-label="Patient">
             {{ row.patientId?.name }}
           </td>
@@ -40,7 +53,7 @@
 
         <!-- Date -->
         <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">Date</th>
           <td mat-cell *matCellDef="let row" data-label="Date">
             {{ row.date }}
           </td>
@@ -48,7 +61,7 @@
 
         <!-- Slot -->
         <ng-container matColumnDef="slot">
-          <th mat-header-cell *matHeaderCellDef>Slot</th>
+          <th mat-header-cell *matHeaderCellDef scope="col">Slot</th>
           <td mat-cell *matCellDef="let row" data-label="Slot">
             {{ row.slot }}
           </td>
@@ -56,9 +69,12 @@
 
         <!-- Status -->
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <th mat-header-cell *matHeaderCellDef scope="col">Status</th>
           <td mat-cell *matCellDef="let row" data-label="Status">
-            <span class="badge" [ngClass]="row.status.toLowerCase()">
+            <span 
+              class="badge" 
+              [ngClass]="row.status.toLowerCase()"
+              aria-label="Appointment status {{ row.status }}">
               {{ row.status }}
             </span>
           </td>
@@ -66,23 +82,41 @@
 
         <!-- Action -->
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <th mat-header-cell *matHeaderCellDef scope="col">Action</th>
           <td mat-cell *matCellDef="let row" data-label="Action">
 
-            <button mat-icon-button color="primary" (click)="openDetails(row)">
-              <mat-icon>visibility</mat-icon>
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="openDetails(row)"
+              aria-label="View details for {{ row.patientId?.name }}">
+              <mat-icon aria-hidden="true">visibility</mat-icon>
             </button>
 
-            <button mat-stroked-button color="primary" *ngIf="row.status === 'Booked'" (click)="accept(row._id)">
+            <button 
+              mat-stroked-button 
+              color="primary" 
+              *ngIf="row.status === 'Booked'" 
+              (click)="accept(row._id)"
+              aria-label="Accept appointment for {{ row.patientId?.name }}">
               Accept
             </button>
 
-            <button mat-stroked-button color="warn" *ngIf="row.status === 'Booked'" (click)="reject(row._id)">
+            <button 
+              mat-stroked-button 
+              color="warn" 
+              *ngIf="row.status === 'Booked'" 
+              (click)="reject(row._id)"
+              aria-label="Reject appointment for {{ row.patientId?.name }}">
               Reject
             </button>
 
-            <button mat-raised-button color="primary" *ngIf="row.status === 'Accepted'"
-              (click)="markCompleted(row._id)">
+            <button 
+              mat-raised-button 
+              color="primary" 
+              *ngIf="row.status === 'Accepted'"
+              (click)="markCompleted(row._id)"
+              aria-label="Mark appointment completed for {{ row.patientId?.name }}">
               Complete
             </button>
 
@@ -94,7 +128,12 @@
       </table>
     </div>
 
-    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
+    <mat-paginator 
+      [pageSize]="10" 
+      [pageSizeOptions]="[5,10,20]" 
+      showFirstLastButtons
+      aria-label="Appointments table pagination">
     </mat-paginator>
+
   </div>
 </div>

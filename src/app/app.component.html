@@ -10,8 +10,11 @@
 </header>
 
 <div class="layout-two" *ngIf="showSidebar">
-  <app-sidebar [open]="mobileMenuOpen" [role]="role">
-  </app-sidebar>
+ <app-sidebar
+  [open]="mobileMenuOpen"
+  [role]="role"
+  (close)="closeMobile()">
+</app-sidebar>
 
   <main class="main-content" (click)="closeMobile()">
     <router-outlet></router-outlet>

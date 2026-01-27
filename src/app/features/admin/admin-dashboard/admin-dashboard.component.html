@@ -1,51 +1,57 @@
-<div class="admin-dashboard">
-
-  <!-- Welcome Banner -->
-  <!-- <div class="welcome-section">
-    <div class="welcome-text">
-      <h1>Welcome Back, Admin 👋</h1>
-      <p>Manage your clinic efficiently with real-time statistics.</p>
-    </div>
-
-    <div class="welcome-image">
-      <img src="assets/admin-dashboard.svg" alt="Dashboard">
-    </div>
-  </div> -->
+<div class="admin-dashboard" role="main" aria-label="Admin Dashboard Overview">
 
   <!-- Statistics Cards -->
   <div class="cards">
-    <div class="circle-card doctors">
+
+    <div class="circle-card doctors" role="region" aria-label="Total Doctors">
       <h3>{{ stats.doctorsCount }}</h3>
-      <p>Doctors</p>
-      <a routerLink="/admin/doctors">Manage</a>
+      <h4>Doctors</h4>
+      <a routerLink="/admin/doctors" aria-label="Manage Doctors">Manage Doctors</a>
     </div>
 
-    <div class="circle-card treatments">
+    <div class="circle-card treatments" role="region" aria-label="Total Treatments">
       <h3>{{ stats.treatmentsCount }}</h3>
-      <p>Treatments</p>
-      <a routerLink="/admin/treatments">Manage</a>
+      <h4>Treatments</h4>
+      <a routerLink="/admin/treatments" aria-label="Manage Treatments">Manage Treatments</a>
     </div>
 
-    <div class="circle-card appointments">
+    <div class="circle-card appointments" role="region" aria-label="Total Appointments">
       <h3>{{ stats.appointmentsCount }}</h3>
-      <p>Appointments</p>
-      <a routerLink="/admin/appointments">View</a>
+      <h4>Appointments</h4>
+      <a routerLink="/admin/appointments" aria-label="View Appointments">View Appointments</a>
     </div>
 
-    <div class="circle-card patients">
+    <div class="circle-card patients" role="region" aria-label="Total Patients">
       <h3>{{ stats.patientsCount }}</h3>
-      <p>Patients</p>
+      <h4>Patients</h4>
     </div>
+
   </div>
 
   <!-- Activity Panel -->
-  <div class="activity-section">
-    <h3>System Activity</h3>
+  <div class="activity-section" role="region" aria-labelledby="activityHeading">
+    <h2 id="activityHeading">System Activity</h2>
     <ul>
-      <li>🧑‍⚕️ New doctor registered today</li>
-      <li>📅 {{ stats.appointmentsCount }} total appointments</li>
-      <li>💊 {{ stats.treatmentsCount }} treatments available</li>
-      <li>👥 {{ stats.patientsCount }} patients in system</li>
+      <li>
+        <span aria-hidden="true">🧑‍⚕️</span>
+        <span class="sr-only">Doctor update:</span>
+        New doctor registered today
+      </li>
+      <li>
+        <span aria-hidden="true">📅</span>
+        <span class="sr-only">Appointments update:</span>
+        {{ stats.appointmentsCount }} total appointments
+      </li>
+      <li>
+        <span aria-hidden="true">💊</span>
+        <span class="sr-only">Treatments update:</span>
+        {{ stats.treatmentsCount }} treatments available
+      </li>
+      <li>
+        <span aria-hidden="true">👥</span>
+        <span class="sr-only">Patients update:</span>
+        {{ stats.patientsCount }} patients in system
+      </li>
     </ul>
   </div>
 

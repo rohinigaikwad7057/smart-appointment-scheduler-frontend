@@ -1,9 +1,9 @@
-<header class="header">
-  <a class="logo">
-    <i class="fas fa-tooth"></i> dentist
+<header class="header" role="banner">
+  <a class="logo" href="/" aria-label="Dentist Home">
+    <i class="fas fa-tooth" aria-hidden="true"></i> dentist
   </a>
 
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <a href="#home" [class.active]="activeSection === 'home'">Home</a>
     <a href="#about" [class.active]="activeSection === 'about'">About</a>
     <a href="#services" [class.active]="activeSection === 'services'">Services</a>
@@ -11,36 +11,40 @@
     <a href="#blog" [class.active]="activeSection === 'blog'">Blog</a>
   </nav>
 
-  <button class="btn" (click)="goToAppointment()">Make Appointment</button>
+  <button class="btn" (click)="goToAppointment()" aria-label="Make an appointment">
+    Make Appointment
+  </button>
 </header>
 
 <!-- HERO -->
-<section id="home" class="home">
+<section id="home" class="home" role="region" aria-labelledby="homeHeading">
   <div class="content">
-    <h3>Make your smile shine</h3>
+    <h1 id="homeHeading">Make your smile shine</h1>
     <p>
       Professional dental care with modern technology and expert doctors.
     </p>
-    <button class="btn" (click)="goToAppointment()">Book Now</button>
+    <button class="btn" (click)="goToAppointment()" aria-label="Book a dental appointment">
+      Book Now
+    </button>
   </div>
 </section>
 
-<section id="about">
+<section id="about" role="region" aria-label="About section">
   <app-about></app-about>
 </section>
 
-<section id="services">
+<section id="services" role="region" aria-label="Services section">
   <app-services></app-services>
 </section>
 
-<section id="pricing" class="pricing">
+<section id="pricing" class="pricing" role="region" aria-label="Pricing section">
   <app-pricing></app-pricing>
 </section>
 
-<section id="blog">
+<section id="blog" role="region" aria-label="Blog section">
   <app-blogs></app-blogs>
 </section>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <app-contacts></app-contacts>
 </footer>
