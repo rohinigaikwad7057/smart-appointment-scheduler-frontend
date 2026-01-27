@@ -74,7 +74,7 @@
             <span 
               class="badge" 
               [ngClass]="row.status.toLowerCase()"
-              aria-label="Appointment status {{ row.status }}">
+              [attr.aria-label]="'Appointment status ' + row.status">
               {{ row.status }}
             </span>
           </td>
@@ -89,7 +89,7 @@
               mat-icon-button 
               color="primary" 
               (click)="openDetails(row)"
-              aria-label="View details for {{ row.patientId?.name }}">
+             [attr.aria-label]="'View details for ' + row.patientId?.name">
               <mat-icon aria-hidden="true">visibility</mat-icon>
             </button>
 
@@ -98,7 +98,7 @@
               color="primary" 
               *ngIf="row.status === 'Booked'" 
               (click)="accept(row._id)"
-              aria-label="Accept appointment for {{ row.patientId?.name }}">
+               [attr.aria-label]="'Accept appointment for ' + row.patientId?.name">
               Accept
             </button>
 
@@ -107,7 +107,7 @@
               color="warn" 
               *ngIf="row.status === 'Booked'" 
               (click)="reject(row._id)"
-              aria-label="Reject appointment for {{ row.patientId?.name }}">
+              [attr.aria-label]="'Reject appointment for ' + row.patientId?.name">
               Reject
             </button>
 
@@ -116,7 +116,7 @@
               color="primary" 
               *ngIf="row.status === 'Accepted'"
               (click)="markCompleted(row._id)"
-              aria-label="Mark appointment completed for {{ row.patientId?.name }}">
+               [attr.aria-label]="'Mark appointment completed for ' + row.patientId?.name">
               Complete
             </button>
 

@@ -102,7 +102,7 @@
         mat-button 
         color="warn" 
         (click)="removeDoctor(d._id)"
-        aria-label="Remove doctor {{ d.name }}">
+        [attr.aria-label]="'Remove doctor ' + d.name">
         Remove
       </button>
     </td>

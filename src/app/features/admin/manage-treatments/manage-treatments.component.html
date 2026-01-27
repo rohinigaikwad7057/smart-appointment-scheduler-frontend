@@ -89,7 +89,7 @@
         mat-button 
         color="warn" 
         (click)="deleteTreatment(t._id)"
-        aria-label="Delete treatment {{ t.name }}">
+         [attr.aria-label]="'Delete treatment ' + t.name">
         Delete
       </button>
     </td>

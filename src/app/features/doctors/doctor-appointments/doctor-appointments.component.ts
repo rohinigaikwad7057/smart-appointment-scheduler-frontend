@@ -36,7 +36,6 @@ import { AppointmentDetailsDialogComponent } from '../../appoinment-details/appo
     MatInputModule,
     MatDialogModule,
     MatTabsModule,
-    MatButtonModule
   ],
   templateUrl: './doctor-appointments.component.html',
   styleUrls: ['./doctor-appointments.component.scss']
