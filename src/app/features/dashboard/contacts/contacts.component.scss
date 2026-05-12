@@ -1,68 +1,108 @@
 .footer {
-    text-align: center;
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 60px 0 30px;
 }
 
+/* Container */
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+/* GRID */
 .footer .box-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
 
-.footer .box-container .box h3 {
-    font-size: 2.2rem;
-    padding: 1rem 0;
-    color: var(--secondary);
+/* BOX */
+.footer .box h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
 
-.footer .box-container .box p {
-    font-size: 1.5rem;
-    padding: .5rem 0;
-    line-height: 2;
-    color: var(--light-color);
+.footer .box p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #94a3b8;
 }
 
-.footer .box-container .box .share {
-    margin-top: 1rem;
+/* LINKS */
+.footer .link {
+  display: block;
+  font-size: 14px;
+  margin: 6px 0;
+  color: #60a5fa;
+  text-decoration: none;
 }
 
-.footer .box-container .box .share a {
-    height: 4.5rem;
-    width: 4.5rem;
-    background: var(--primary);
-    color: var(--white);
-    line-height: 4.5rem;
-    border-radius: 10%;
-    font-size: 1.7rem;
-    margin-right: .3rem;
-    text-align: center;
+.footer .link:hover {
+  color: #3b82f6;
 }
 
-.footer .box-container .box .share a:hover {
-    background: var(--secondary);
+/* SOCIAL ICONS */
+.footer .share {
+  margin-top: 15px;
 }
 
-.footer .box-container .box .link {
-    display: block;
-    font-size: 1.7rem;
-    line-height: 2;
-    color: var(--primary);
-    padding: .5rem 0;
+.footer .share a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background: #1e293b;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 8px;
+  text-align: center;
+  margin-right: 8px;
+  transition: 0.3s;
 }
 
-.footer .box-container .box .link:hover {
-    color: var(--hover);
+.footer .share a:hover {
+  background: #3b82f6;
 }
 
+/* MAP */
+.footer-map {
+  margin-top: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* CREDIT */
 .footer .credit {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    font-size: 2rem;
-    text-align: center;
-    text-transform: capitalize;
-    color: var(--primary);
-    border-top: .1rem solid var(--secondary);
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  color: #94a3b8;
 }
 
-.footer .credit span {
-    color: var(--secondary);
+/* ========================= */
+/* 📱 RESPONSIVE FIXES */
+/* ========================= */
+
+@media (max-width: 992px) {
+  .footer .box-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer .box-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer .share a {
+    margin: 5px;
+  }
 }

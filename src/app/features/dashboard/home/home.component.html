@@ -17,15 +17,27 @@
 </header>
 
 <!-- HERO -->
+<!-- HERO -->
 <section id="home" class="home" role="region" aria-labelledby="homeHeading">
+  <div class="overlay"></div>
+
   <div class="content">
-    <h1 id="homeHeading">Make your smile shine</h1>
+    <span class="badge">✨ Trusted Dental Care</span>
+
+    <h1 id="homeHeading">
+      Make Your <span>Smile Shine</span>
+    </h1>
+
     <p>
       Professional dental care with modern technology and expert doctors.
+      Comfortable, fast, and reliable treatments.
     </p>
-    <button class="btn" (click)="goToAppointment()" aria-label="Book a dental appointment">
-      Book Now
-    </button>
+
+    <div class="hero-actions">
+      <button class="btn primary" (click)="goToAppointment()">
+        Book Appointment
+      </button>
+    </div>
   </div>
 </section>
 

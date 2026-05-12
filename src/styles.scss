@@ -12,15 +12,18 @@
     --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
 }
 
+/* RESET */
 *{
     font-family: 'Poppins', sans-serif;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    outline: none; border: none;
+    outline: none;
+    border: none;
     text-decoration: none;
     text-transform: capitalize;
     transition: .2s linear;
-    font-size: medium;
+     font-size: medium;
 }
 
 html{
@@ -28,31 +31,39 @@ html{
     overflow-x: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
-
-}
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; 
 }
 
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* SCROLLBAR */
 html::-webkit-scrollbar{
     width: .8rem;
 }
-
 html::-webkit-scrollbar-track{
     background: transparent;
 }
-
 html::-webkit-scrollbar-thumb{
     background: var(--primary);
     border-radius: 5rem;
 }
 
-// section{
-//     padding: 5rem 7%;
-// }
+/* GLOBAL SECTION (FIXED) */
+section{
+    width: 100%;
+    // padding: 5rem 5%;
+}
 
+/* CONTAINER SYSTEM (IMPORTANT) */
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADING */
 .heading{
     font-size: 4rem;
     text-align: center;
@@ -62,6 +73,7 @@ html::-webkit-scrollbar-thumb{
     margin-bottom: 3rem;
 }
 
+/* BUTTON */
 .btn{
     margin-top: 1rem;
     display: inline-block;
@@ -72,13 +84,11 @@ html::-webkit-scrollbar-thumb{
     font-size: 1.7rem;
     color: var(--white);
 }
-
 .btn:hover{
     background: var(--secondary);
 }
 
-/* header */
-
+/* HEADER (FIXED WIDTH ISSUE) */
 .header{
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -88,7 +98,7 @@ html::-webkit-scrollbar-thumb{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 9%;
+    padding: 2rem 5%; /* ✅ FIXED */
 }
 
 .header .logo{
@@ -128,7 +138,7 @@ html::-webkit-scrollbar-thumb{
     color: var(--primary);
 }
 
-/* Screen reader only text */
+/* ACCESSIBILITY */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -140,12 +150,7 @@ html::-webkit-scrollbar-thumb{
   border: 0;
 }
 
-/* Keyboard focus visibility */
 a:focus, button:focus {
   outline: 3px solid #1976d2;
   outline-offset: 2px;
 }
-
-
-
-

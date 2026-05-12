@@ -1,96 +1,159 @@
+/* SECTION */
 .pricing {
-    background: var(--light-bg);
+    padding: 5rem 5%;
+    background: linear-gradient(180deg, #f8faff, #eef2ff);
+    // max-width: 1100px;
+    margin: auto;
 }
 
-.pricing .box-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-}
-
-
-.pricing .box-container .box {
-    height: 46rem;
-    width: 100%;
-    max-width: 41rem;
-    /* desktop limit */
-    margin: 1rem;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
+/* HEADING */
+.pricing .heading {
     text-align: center;
-    overflow: hidden;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+/* GRID */
+.pricing .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 29px;
+    gap: 5rem;
+}
+
+/* CARD */
+.pricing .box {
+    background: #fff;
+    padding: 2.5rem 2rem;
+   border-radius: 29px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    text-align: center;
     position: relative;
-    z-index: 1;
-    background: var(--white);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.pricing .box-container .active {
-    background: var(--hover);
+.pricing .box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
-.pricing .box-container .box .title {
-    margin: 3rem 0;
-    font-size: 2.2rem;
-    color: var(--black);
+/* ACTIVE CARD */
+.pricing .box.active {
+    background: linear-gradient(135deg, #2d3a8c, #3f4fcf);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* BADGE */
+.pricing .badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffb400;
+    color: #000;
+    padding: 0.4rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* TITLE */
+.pricing .title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
 
-.pricing .box-container .box .price {
-    color: var(--primary);
-    margin-bottom: 5rem;
+/* PRICE */
+.pricing .price {
+    margin-bottom: 2rem;
 }
 
-.pricing .box-container .box .price .currency {
-    font-size: 4rem;
-    line-height: 3.5rem;
-    font-weight: 300;
+.pricing .currency {
+    font-size: 2rem;
+    vertical-align: top;
 }
 
-.pricing .box-container .box .price .amount {
-    font-size: 5.8rem;
-    line-height: 4.5rem;
+.pricing .amount {
+    font-size: 4.5rem;
     font-weight: 700;
 }
 
-.pricing .box-container .box .price .duration {
-    font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: .2rem;
+.pricing .duration {
+    font-size: 1.4rem;
 }
 
-.pricing .box-container .box ul li {
+/* FEATURES */
+.pricing ul {
+    margin-bottom: 2rem;
+}
+
+.pricing ul li {
+    font-size: 1.4rem;
+    margin: 1rem 0;
     text-align: left;
-    font-size: 1.6rem;
-    padding-left: 3.5rem;
-    margin: 2rem auto;
-    color: var(--light-color);
-    text-transform: uppercase;
 }
 
-.pricing .box-container .box ul li i {
-    padding: 0 1rem;
-    color: var(--secondary);
+.pricing ul li i {
+    color: #3f4fcf;
+    margin-right: 0.5rem;
 }
 
-@media (max-width: 768px) {
+/* ACTIVE ICON COLOR */
+.pricing .active ul li i {
+    color: #fff;
+}
+
+/* BUTTON */
+.pricing .btn {
+    margin-top: auto;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background: #fff;
+    color: #2d3a8c;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.pricing .btn:hover {
+    transform: scale(1.05);
+}
+
+/* OUTLINE BUTTON */
+.pricing .btn.outline {
+    background: transparent;
+    border: 2px solid #2d3a8c;
+    color: #2d3a8c;
+}
+
+.pricing .btn.outline:hover {
+    background: #2d3a8c;
+    color: #fff;
+}
+
+/* ACTIVE BUTTON */
+.pricing .active .btn {
+    background: #fff;
+    color: #2d3a8c;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
     .pricing .box-container {
-        flex-direction: column;
-    }
-
-    .pricing .box-container .box {
-        max-width: 90%;
-        height: auto;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .pricing .box-container .box .price .amount {
-        font-size: 4.5rem;
+@media (max-width: 600px) {
+    .pricing .box-container {
+        grid-template-columns: 1fr;
     }
 
-    .pricing .box-container .box ul li {
-        font-size: 1.4rem;
+    .pricing .box.active {
+        transform: none;
     }
 }
