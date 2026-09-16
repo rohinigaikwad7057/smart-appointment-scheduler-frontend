@@ -58,7 +58,7 @@ export class LoginComponent {
           this.snack.open('Doctor login successful!', 'OK', { duration: 2000 });
           setTimeout(() => this.router.navigate(['doctor/dashboard']), 2000);
         },
-        error: () => this.snack.open('Invalid doctor credentials', 'OK', { duration: 3000 })
+        error: (error: any) => this.snack.open(error.error?.message || 'Doctor login failed', 'OK', { duration: 3000 })
       });
       return;
     }
@@ -72,7 +72,7 @@ export class LoginComponent {
           this.snack.open('Admin login successful!', 'OK', { duration: 2000 });
           setTimeout(() => this.router.navigate(['/admin/dashboard']), 2000);
         },
-        error: () => this.snack.open('Invalid admin credentials', 'OK', { duration: 3000 })
+        error: (error: any) => this.snack.open(error.error?.message || 'Admin login failed', 'OK', { duration: 3000 })
       });
       return;
     }
@@ -87,7 +87,7 @@ export class LoginComponent {
 
   setTimeout(() => this.router.navigate(['/patient/dashboard']), 2000)
       },
-      error: () => this.snack.open('Invalid patient credentials', 'OK', { duration: 3000 })
+      error: (error: any) => this.snack.open(error.error?.message || 'Patient login failed', 'OK', { duration: 3000 })
     });
   }
 }
